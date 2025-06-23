@@ -6,7 +6,7 @@ import pyperclip
 import platform
 from colorama import init, Fore
 
-init(autoreset=True)  # Автоматический сброс цвета после каждой строки
+init(autoreset=True)
 
 def choose_file(title="Выберите файл"):
     root = tk.Tk()
@@ -26,14 +26,14 @@ def encrypt_file():
         data = f.read()
 
     encrypted = fernet.encrypt(data)
-
     new_path = file_path + ".encrypted"
+
     with open(new_path, 'wb') as f:
         f.write(encrypted)
 
     pyperclip.copy(key.decode())
     print(f"\n✅ Файл зашифрован как: {new_path}")
-    print(f"🔑 Ключ (скопирован в буфер обмена):\n{key.decode()}")
+    print(f"🔑 Ключ скопирован в буфер обмена:\n{key.decode()}")
 
 def decrypt_file():
     file_path = choose_file("Выберите файл для расшифровки (.encrypted)")
@@ -58,9 +58,9 @@ def decrypt_file():
         return
 
     if file_path.endswith(".encrypted"):
-        output_path = file_path[:-10]
+        output_path = file_path[:-10]  # Убираем ".encrypted"
     else:
-        output_path = file_path + "_restored"
+        output_path = file_path
 
     with open(output_path, 'wb') as f:
         f.write(decrypted)
@@ -96,3 +96,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
