@@ -17,7 +17,9 @@ Simple menu
 Windows and Linux support
 
 
+Why app is detecting?
 
+Lack of digital signature
 
 
 ![image](https://github.com/user-attachments/assets/6bceec36-d770-4e8e-8c18-af1134f7f35c)
